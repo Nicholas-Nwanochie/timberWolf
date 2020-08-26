@@ -4,6 +4,8 @@ class App extends Component {
   state = {
     beer: []
   };
+
+  
   componentDidMount() {
     axios
       .get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`)
@@ -20,12 +22,16 @@ class App extends Component {
     console.log(this.state);
     this.setState({ value: event.target.value });
   };
+
+  
   render() {
-    // console.log(this.state);
-    return (
+const item = this.state.beer.find((drink) => {
+  return drink.strDrink === this.state.value;
+});
+return (
       <>
         <label>
-          Pick your favorite drink:
+       your instructions drink:
           <select value={this.state.value} onChange={this.handleChange}>
             {this.state.beer.map((drink) => (
               <option key={drink.idDrink}> {drink.strDrink} </option>
@@ -34,18 +40,9 @@ class App extends Component {
         </label>
         <button
           onClick={() =>
-            
+              alert("Your favorite flavor is: " + item.strInstructions)
      
-            alert(
-              "Your favorite flavor is: " +
-              JSON.stringify(
-                this.state.beer.find(
-                  (drink) => drink.strDrink === this.state.value
-                )
-
-                )
-                
-              )
+          
 
             
             
