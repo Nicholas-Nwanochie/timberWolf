@@ -31,7 +31,7 @@ const item = this.state.beer.find((drink) => {
 return (
       <>
         <label>
-       your instructions drink:
+       Pick your poision:
           <select value={this.state.value} onChange={this.handleChange}>
             {this.state.beer.map((drink) => (
               <option key={drink.idDrink}> {drink.strDrink} </option>
@@ -40,7 +40,7 @@ return (
         </label>
         <button
           onClick={() =>
-              alert("Your favorite flavor is: " + item.strInstructions)
+              alert("your drink instructions: " + item.strInstructions)
      
           
 
